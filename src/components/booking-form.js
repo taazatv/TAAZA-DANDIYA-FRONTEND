@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import backend_url from "../config.js";
 const BookingForm = () => {
-  const TICKET_PRICE = 700;
+  const TICKET_PRICE = 800;
   const initialState = {
     name: "",
     email: "",
@@ -22,45 +22,43 @@ const BookingForm = () => {
   const [discount, setDiscount] = useState(0);
   const [emailError, setemailError] = useState("");
   const [selectedDate, setSelectedDate] = useState(""); // Define selectedDate state
-// Captcha state
-const [captchaNum1, setCaptchaNum1] = useState(0);
-const [captchaNum2, setCaptchaNum2] = useState(0);
-const [captchaAnswer, setCaptchaAnswer] = useState('');
-const [captchaCorrect, setCaptchaCorrect] = useState(false);
+  // Captcha state
+  const [captchaNum1, setCaptchaNum1] = useState(0);
+  const [captchaNum2, setCaptchaNum2] = useState(0);
+  const [captchaAnswer, setCaptchaAnswer] = useState("");
+  const [captchaCorrect, setCaptchaCorrect] = useState(false);
 
-// Randomly generate captcha numbers
-useEffect(() => {
-  generateCaptcha();
-}, []);
+  // Randomly generate captcha numbers
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
 
-const generateCaptcha = () => {
-  const num1 = Math.floor(Math.random() * 10) + 1;
-  const num2 = Math.floor(Math.random() * 10) + 1;
-  setCaptchaNum1(num1);
-  setCaptchaNum2(num2);
-};
+  const generateCaptcha = () => {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    setCaptchaNum1(num1);
+    setCaptchaNum2(num2);
+  };
 
-const handleCaptchaChange = (e) => {
-  setCaptchaAnswer(e.target.value);
-  const isCorrect = parseInt(e.target.value, 10) === captchaNum1 + captchaNum2;
-  setCaptchaCorrect(isCorrect); // Set to true if correct, false otherwise
-};
-
+  const handleCaptchaChange = (e) => {
+    setCaptchaAnswer(e.target.value);
+    const isCorrect =
+      parseInt(e.target.value, 10) === captchaNum1 + captchaNum2;
+    setCaptchaCorrect(isCorrect); // Set to true if correct, false otherwise
+  };
 
   const notifySuccess = (message) => {
-    toast.success(message, 
-      {
-        className: "cts",
-        autoClose: 5000,
-      }
-    );
+    toast.success(message, {
+      className: "cts",
+      autoClose: 5000,
+    });
   };
   const notifySuccessPerm = (res) =>
     toast.success(
-        <>
+      <>
         <div className="customAlert">
           <p>
-            Confirmed! Booking ID {res.data.token}. You are entitled to  
+            Confirmed! Booking ID {res.data.token}. You are entitled to
             {res.data.tickets} tickets dated {res.data.date} for Taaza Dandiya
             @Netaji Indoor Stadium subject to clearance of payment. T&C apply.
           </p>
@@ -68,21 +66,21 @@ const handleCaptchaChange = (e) => {
             <strong>Goto the Ticket counter at the venue to redeem.</strong>
           </p>
           <button
-            onClick={() =>
-              (window.location.href = "https://dandiya.taazatv.com")
-            }
+            onClick={() => (window.location.href = "https://taazadandiya.com")}
             className="redirectbutton"
             title="go to home"
-            style={{ padding: "8px 16px"}}
+            style={{ padding: "8px 16px" }}
           >
             Back to Home Page
           </button>
         </div>
-      </>, {
-      className: "scs",
-      autoClose: false,
-      position: "top-center",
-    });
+      </>,
+      {
+        className: "scs",
+        autoClose: false,
+        position: "top-center",
+      }
+    );
 
   const notifyError = (message) =>
     toast.error(message, {
@@ -123,37 +121,33 @@ const handleCaptchaChange = (e) => {
   };
 
   const handleDateSelect = (dateString) => {
-    const parts = dateString.split('-');
+    const parts = dateString.split("-");
     const formattedDate = `${parts[2]}-${parts[1]}-${parts[0]}`; // Convert to 'YYYY-MM-DD'
     const date = new Date(formattedDate);
-    
-    const outputFormattedDate  = [
+
+    const outputFormattedDate = [
       date.getFullYear(),
       String(date.getMonth() + 1).padStart(2, "0"),
       String(date.getDate()).padStart(2, "0"),
     ].join("-");
     console.log(outputFormattedDate);
-    setFormData({ ...formData, date: outputFormattedDate  });
+    setFormData({ ...formData, date: outputFormattedDate });
     setSelectedDate(dateString);
   };
   const verifyDiscountCode = async () => {
     if (formData.discountCode && formData.date) {
       try {
-        
         console.log({ code: formData.discountCode, date: formData.date });
-  
-        const response = await fetch(
-          `${backend_url}/api/admin/verify-coupon`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              code: formData.discountCode,
-              date: formData.date, // Send the formatted date
-            }),
-          }
-        );
-  
+
+        const response = await fetch(`${backend_url}/api/admin/verify-coupon`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            code: formData.discountCode,
+            date: formData.date, // Send the formatted date
+          }),
+        });
+
         if (!response.ok) {
           const result = await response.json();
           notifyError(`Coupon error: ${result.message}`);
@@ -171,7 +165,7 @@ const handleCaptchaChange = (e) => {
       notifyError("Please enter a discount code and select a valid date.");
     }
   };
-  
+
   const validateEmail = (email) => {
     // Simple email validation regex
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -198,10 +192,10 @@ const handleCaptchaChange = (e) => {
     //   return; // Stop form submission if CAPTCHA is incorrect
     // }
 
-     if (!isdateEnabled) {
-        notifyError('Booking is currently disabled for the selected date.');
-        return;
-   }
+    if (!isdateEnabled) {
+      notifyError("Booking is currently disabled for the selected date.");
+      return;
+    }
 
     // Validate required fields
     if (
@@ -227,7 +221,7 @@ const handleCaptchaChange = (e) => {
         const discountCheckRes = await axios.get(
           `${backend_url}/api/bookings/check-coupon/${formData.discountCode}/${formData.date}`
         );
-    
+
         if (discountCheckRes.status === 200) {
           const { discount } = discountCheckRes.data;
           setDiscount(discount); // Apply the discount if valid
@@ -241,7 +235,7 @@ const handleCaptchaChange = (e) => {
         return;
       }
     }
-    
+
     try {
       // Check if phone number exists
       const phoneCheckRes = await axios.get(
@@ -277,9 +271,9 @@ const handleCaptchaChange = (e) => {
       const orderRes = await axios.post(
         `${backend_url}/api/bookings/create-order`,
         {
-            amount: finalAmount, // Amount in INR or the required currency
-            currency: "INR", // Set currency, e.g., INR
-            receipt: `receipt_${Date.now()}` // Unique receipt ID
+          amount: finalAmount, // Amount in INR or the required currency
+          currency: "INR", // Set currency, e.g., INR
+          receipt: `receipt_${Date.now()}`, // Unique receipt ID
         }
       );
       const { orderId } = orderRes.data;
@@ -289,7 +283,7 @@ const handleCaptchaChange = (e) => {
         key: `${test_key}`,
         amount: `${finalAmount * 100}`,
         currency: "INR",
-        name: "Taaza Dandiya 2024",
+        name: "Taaza Dandiya 2025",
         description: "Ticket Booking Payment",
         image: "https://taazatv.com/image/logo.webp",
         order_id: `${orderId}`,
@@ -350,33 +344,33 @@ const handleCaptchaChange = (e) => {
         <div className="date-selection">
           <div
             className={`date-box ${
-              selectedDate === "10-10-2024" ? "active" : ""
+              selectedDate === "29-09-2025" ? "active" : ""
             }`}
-            onClick={() => handleDateSelect("10-10-2024")}
+            onClick={() => handleDateSelect("29-09-2025")}
           >
-            <span className="month">OCT</span>
-            <span className="date">10</span>
-            <span className="day">Thu</span>
+            <span className="month">SEP</span>
+            <span className="date">29</span>
+            <span className="day">Mon</span>
           </div>
           <div
             className={`date-box ${
-              selectedDate === "11-10-2024" ? "active" : ""
+              selectedDate === "30-09-2025" ? "active" : ""
             }`}
-            onClick={() => handleDateSelect("11-10-2024")}
+            onClick={() => handleDateSelect("30-09-2025")}
           >
-            <span className="month">OCT</span>
-            <span className="date">11</span>
-            <span className="day">Fri</span>
+            <span className="month">SEP</span>
+            <span className="date">30</span>
+            <span className="day">Tue</span>
           </div>
           <div
             className={`date-box ${
-              selectedDate === "12-10-2024" ? "active" : ""
+              selectedDate === "01-10-2025" ? "active" : ""
             }`}
-            onClick={() => handleDateSelect("12-10-2024")}
+            onClick={() => handleDateSelect("01-10-2025")}
           >
             <span className="month">OCT</span>
-            <span className="date">12</span>
-            <span className="day">Sat</span>
+            <span className="date">01</span>
+            <span className="day">Wed</span>
           </div>
         </div>
         <div className="selected">
@@ -388,35 +382,36 @@ const handleCaptchaChange = (e) => {
         </div>
       </div>
 
-     
-      <div div className='flex gap-3 resp'>
-            <div className='flex-1'>
-    <label>No. of Tickets <span style={{ color: 'red' }}>*</span></label>
-    <select
-        name="tickets"
-        className="ticket-count"
-        value={formData.tickets}
-        onChange={handleChange}
-        required
-        style={{
-            width: '100%',
-            height:'60%',
-            padding: '8px',
-            border: '2px solid black',
-            backgroundColor: '#FFFFFF',
-            fontSize: '16px',
-            cursor: 'pointer'
-        }}
-    >
-        <option value="">Select</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-</div>
-      
+      <div div className="flex gap-3 resp">
+        <div className="flex-1">
+          <label>
+            No. of Tickets <span style={{ color: "red" }}>*</span>
+          </label>
+          <select
+            name="tickets"
+            className="ticket-count"
+            value={formData.tickets}
+            onChange={handleChange}
+            required
+            style={{
+              width: "100%",
+              height: "60%",
+              padding: "8px",
+              border: "2px solid black",
+              backgroundColor: "#FFFFFF",
+              fontSize: "16px",
+              cursor: "pointer",
+            }}
+          >
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
         <div className="flex-1">
           <label>Coupon Code</label>
           <input
@@ -428,8 +423,8 @@ const handleCaptchaChange = (e) => {
               formData.date && selectedDate && formData.tickets ? false : true
             }
             onInput={(e) => {
-            e.target.value = e.target.value.toUpperCase(); // Converts all characters to Uppercase
-          }}
+              e.target.value = e.target.value.toUpperCase(); // Converts all characters to Uppercase
+            }}
             title={
               formData.date && selectedDate && formData.tickets
                 ? "Enter Coupon Code"
@@ -515,7 +510,10 @@ const handleCaptchaChange = (e) => {
         {discount ? `(${discount} % Discount Applied )` : ""}
       </div>
       <div>
-        <label>Solve the captcha: {captchaNum1} + {captchaNum2} = ?</label><span style={{ color: "red" }}>*</span>
+        <label>
+          Solve the captcha: {captchaNum1} + {captchaNum2} = ?
+        </label>
+        <span style={{ color: "red" }}>*</span>
         <input
           type="number"
           value={captchaAnswer}
@@ -523,7 +521,9 @@ const handleCaptchaChange = (e) => {
           required
         />
         {!captchaCorrect && captchaAnswer && (
-          <p style={{ color: 'red', fontSize: '12px' }}>Captcha is incorrect.</p>
+          <p style={{ color: "red", fontSize: "12px" }}>
+            Captcha is incorrect.
+          </p>
         )}
       </div>
 
