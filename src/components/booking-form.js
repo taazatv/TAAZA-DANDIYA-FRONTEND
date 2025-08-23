@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import backend_url from "../config.js";
 const BookingForm = () => {
-  const TICKET_PRICE = 800;
+  const TICKET_PRICE = 1;
   const initialState = {
     name: "",
     email: "",
@@ -192,10 +192,10 @@ const BookingForm = () => {
     //   return; // Stop form submission if CAPTCHA is incorrect
     // }
 
-    if (!isdateEnabled) {
-      notifyError("Booking is currently disabled for the selected date.");
-      return;
-    }
+    //    if (!isdateEnabled) {
+    //    notifyError("Booking is currently disabled for the selected date.");
+    //  return;
+    //}
 
     // Validate required fields
     if (
