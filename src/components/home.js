@@ -50,8 +50,8 @@ export default function Home() {
               Event Details
             </h1>
             <p className="mb-4 leading-relaxed text-justify">
-              Taaza Dandiya 2025 is set to take place from October 10th to 12th
-              at the Netaji Indoor Stadium, Kolkata. It promises an
+              Taaza Dandiya 2025 is set to take place from Spetember 29th to 1st
+              October at the Netaji Indoor Stadium, Kolkata. It promises an
               unforgettable experience, with a lineup that includes sensational
               artists, exciting contests with fantastic prizes, and the biggest
               dance floor in East India. Be part of this grand celebration and
