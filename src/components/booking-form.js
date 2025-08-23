@@ -188,8 +188,8 @@ const BookingForm = () => {
     }
 
     // if (!captchaCorrect) {
-    //   notifyError("Please solve the CAPTCHA correctly.");
-    //   return; // Stop form submission if CAPTCHA is incorrect
+    // notifyError("Please solve the CAPTCHA correctly.");
+    //return; // Stop form submission if CAPTCHA is incorrect
     // }
 
     //    if (!isdateEnabled) {
