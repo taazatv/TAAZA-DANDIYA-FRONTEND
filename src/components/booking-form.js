@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import backend_url from "../config.js";
+import Terms from "./terms.js";
 const BookingForm = () => {
   const TICKET_PRICE = 800;
   const initialState = {
@@ -531,66 +532,9 @@ const BookingForm = () => {
         {loading ? "Processing..." : "Proceed To Pay"}
       </button>
 
-      {/* Terms and conditions */}
-      <p className="font-light font-xs leading-3">
-        1. You can book a minimum of 1 and a maximum of 5 tickets from one
-        mobile number.
-      </p>
-      <p className="font-light font-xs leading-3">
-        2. Online Tickets will have to be changed for physical tickets at the
-        ticket counter at venue.
-      </p>
-      <p className="font-light font-xs leading-3">
-        3. Only 1 booking allowed per phone number{" "}
-      </p>
-      <p className="font-light font-xs leading-3">
-        4. Only successfully paid tickets will be accepted for entry.
-      </p>
-      <p className="font-light font-xs leading-3">
-        5. In case of any discrepancy whatsapp us on 9831669999.
-      </p>
-      <p className="font-light font-xs leading-3">
-        6. Severe action will be taken against misconduct or mischievous
-        behavior.
-      </p>
-      <p className="font-light font-xs leading-3">
-        7. Smoking and consumption of alcohol is strictly prohibited inside the
-        venue.
-      </p>
-      <p className="font-light font-xs leading-3">
-        8. Entry ticket is required for children above 3 years of age.
-      </p>
-      <p className="font-light font-xs leading-3">
-        9. Individuals under the influence of alcohol will not be allowed inside
-        the venue.
-      </p>
-      <p className="font-light font-xs leading-3">
-        10. Outside eatables and water are not allowed.
-      </p>
-      <p className="font-light font-xs leading-3">
-        11. Scissors, knives, blades, or any other objectionable instruments are
-        not allowed.
-      </p>
-      <p className="font-light font-xs leading-3">
-        12. Every individual must undergo security checks and frisking before
-        entering.
-      </p>
-      <p className="font-light font-xs leading-3">
-        13. The program is subject to the Force Majeure clause.
-      </p>
-      <p className="font-light font-xs leading-3">
-        14. The program is liable to change at the organizer's discretion.
-      </p>
-      <p className="font-light font-xs leading-3">
-        15. Dandiya sticks and food are available for purchase until stocks
-        last.
-      </p>
-      <p className="font-light font-xs leading-3">
-        16. Re-entry is not allowed once you exit the venue.
-      </p>
-      <p className="font-light font-xs leading-3">
-        17. Organisers hold the rights to deny late entry.
-      </p>
+      <div>
+        <Terms />
+      </div>
     </form>
   );
 };
