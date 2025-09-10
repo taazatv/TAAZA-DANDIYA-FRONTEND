@@ -21,8 +21,10 @@ export default function Navbar() {
             Terms
           </Link>
           <Link
-            className="mr-5 hover:text-gray-900"
             to="https://taazatv.com/contact.php"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mr-5 hover:text-gray-900"
           >
             Contact Us
           </Link>
