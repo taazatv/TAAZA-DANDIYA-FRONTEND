@@ -67,7 +67,9 @@ const BookingForm = () => {
             <strong>Goto the Ticket counter at the venue to redeem.</strong>
           </p>
           <button
-            onClick={() => (window.location.href = "https://taazadandiya.com")}
+            onClick={() =>
+              (window.location.href = "https://dandiya.taazatv.com")
+            }
             className="redirectbutton"
             title="go to home"
             style={{ padding: "8px 16px" }}
