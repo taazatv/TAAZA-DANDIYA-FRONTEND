@@ -1,6 +1,6 @@
 import React from "react";
 
-const TermsAndCancellation = () => {
+const TermsAndCancellationAndPrivacy = () => {
   const termsList = [
     "You can book a minimum of 1 and a maximum of 5 tickets from one mobile number.",
     "Online tickets will have to be exchanged for physical tickets at the ticket counter at the venue.",
@@ -50,9 +50,9 @@ const TermsAndCancellation = () => {
               booked.
             </li>
             <li>
-              <strong>Non-transferable & Non-exchangeable:</strong> Tickets are
-              non-transferable and cannot be exchanged for another date, event,
-              or cash alternative.
+              <strong>Non-transferable &amp; Non-exchangeable:</strong> Tickets
+              are non-transferable and cannot be exchanged for another date,
+              event, or cash alternative.
             </li>
           </ul>
 
@@ -66,9 +66,67 @@ const TermsAndCancellation = () => {
             </a>
           </p>
         </div>
+
+        {/* 🔒 Privacy Policy */}
+        <div>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            Privacy Policy
+          </h2>
+          <div className="space-y-2 text-gray-700 leading-relaxed text-justify">
+            <p>
+              As a general rule, this website does not collect Personal
+              Information about you when you visit the site, unless you choose
+              to provide such information through feedback, online registration,
+              ticket purchase etc.
+            </p>
+
+            <p>
+              <strong>Cookies & Tracking: </strong>We may use cookies or similar
+              technologies to improve user experience and understand how the
+              site is being used. You may disable cookies in your browser, but
+              some functionality may be affected.
+            </p>
+            <p>
+              <strong>Email and Personal Information: </strong>Your email and
+              other personal details will only be collected if you choose to
+              send a message, make a registration, or purchase tickets. We will
+              use them only for the purpose for which they were provided. We
+              won't disclose them without your consent, except as required by
+              law.
+            </p>
+            <p>
+              <strong>Data Retention:</strong> We retain information only as
+              long as necessary for our business purposes, legal compliance or
+              resolving disputes.
+            </p>
+            <p>
+              <strong>Disclosure:</strong> We will not sell or rent your
+              personal data. We may share data with our staff/agents/suppliers
+              who need it to provide the service. We may also disclose
+              information pursuant to legal obligations (e.g. court orders, law
+              enforcement requests).
+            </p>
+
+            <p>
+              <strong>Changes to Policy:</strong> We reserve the right to update
+              or modify this Privacy Policy at any time. Any changes will be
+              posted on the site, and by continuing to use the site after
+              changes you consent to those changes.
+            </p>
+            <p>
+              📧 For privacy queries, contact:{" "}
+              <a
+                href="mailto:response@taazatv.com"
+                className="text-blue-600 underline"
+              >
+                response@taazatv.com
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default TermsAndCancellation;
+export default TermsAndCancellationAndPrivacy;
