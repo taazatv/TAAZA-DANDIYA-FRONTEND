@@ -6,7 +6,7 @@ const TermsAndCancellation = () => {
     "Online tickets will have to be exchanged for physical tickets at the ticket counter at the venue.",
     "Only 1 booking allowed per phone number.",
     "Only successfully paid tickets will be accepted for entry.",
-    "In case of any discrepancy WhatsApp us on 9831669999.",
+    "In case of any discrepancy WhatsApp us on 9831669986.",
     "Severe action will be taken against misconduct or mischievous behavior.",
     "Smoking and consumption of alcohol is strictly prohibited inside the venue.",
     "Entry ticket is required for children above 3 years of age.",
@@ -43,46 +43,16 @@ const TermsAndCancellation = () => {
           </h2>
           <ul className="list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
             <li>
-              <strong>Cancellation Window:</strong> Ticket cancellations can be
-              requested up to 7 days before the event date (i.e., until{" "}
-              <strong>22nd September 2025</strong>).
+              <strong>Tickets once sold cannot be cancelled.</strong>
             </li>
             <li>
-              <strong>Refund Charges:</strong>
-              <ul className="list-disc list-inside ml-6 space-y-1">
-                <li>
-                  Before <strong>22nd September 2025</strong> → Full refund
-                  minus 10% administrative charge.
-                </li>
-                <li>
-                  After <strong>22nd September 2025</strong> → No refunds will
-                  be provided.
-                </li>
-              </ul>
+              <strong>No refunds</strong> will be provided for tickets once
+              booked.
             </li>
             <li>
               <strong>Non-transferable & Non-exchangeable:</strong> Tickets are
               non-transferable and cannot be exchanged for another date, event,
               or cash alternative.
-            </li>
-            <li>
-              <strong>How to Cancel:</strong> Send cancellation requests to{" "}
-              <a
-                href="mailto:events@taazatv.com"
-                className="text-blue-600 underline"
-              >
-                events@taazatv.com
-              </a>{" "}
-              with:
-              <ul className="list-disc list-inside ml-6 space-y-1">
-                <li>Ticket Order Number</li>
-                <li>Name of Purchaser</li>
-                <li>Contact Information</li>
-              </ul>
-            </li>
-            <li>
-              <strong>Refund Processing:</strong> Approved refunds will be
-              processed within <strong>7–10 business days</strong>.
             </li>
           </ul>
 
