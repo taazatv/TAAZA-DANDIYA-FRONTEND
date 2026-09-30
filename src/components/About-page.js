@@ -11,7 +11,7 @@ const Aboutpage = () => {
       </header>
 
       <section className="event-details">
-        <h2>Where: Netaji Indoor Stadium</h2>
+        <h2>Where: Milan Mela Prangan(Behind ITC Kolkata)</h2>
         <h3>When: 3 nights of non-stop festivities</h3>
         <h4>Dance to the beats of:</h4>
         <ul>
@@ -33,11 +33,10 @@ const Aboutpage = () => {
       <section className="venue-location">
         <h3>Venue Location:</h3>
         <p>
-          Netaji Indoor Stadium, Maidan, B.B.D. Bagh, Kolkata, West Bengal
-          700021, India
+          Milan Mela Prangan , 3, JBS Haldane Avenue, EM Bypass, Park Circus/Tangra, Kolkata, West Bengal 700046, India 
         </p>
         <a
-          href="https://www.google.com/maps/place/Netaji+Indoor+Stadium/@22.5670879,88.3382971,17z/data=!3m1!4b1!4m6!3m5!1s0x3a02779efd7f4425:0x7cfcd63857ef0d4f!8m2!3d22.567083!4d88.340872!16s%2Fg%2F11bycdyh8q?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D"
+          href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.9264499775986!2d88.39165538622163!3d22.544427781189835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0276a034abbf8d%3A0xadf43cb046681a31!2sMilan%20Mela%20Prangan%2CWBTPO!5e0!3m2!1sen!2sin!4v1790750293493!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
           target="_blank"
           rel="noopener noreferrer"
           className="map-link"
