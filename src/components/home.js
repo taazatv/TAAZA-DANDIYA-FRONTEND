@@ -116,7 +116,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-
+//ADD NEW LINKS...
         <img src={Home1} alt="home" className="relative hero-sec imageee" />
       </section>
 
