@@ -14,10 +14,10 @@ export default function BookingPage() {
 
       {/* Heading */}
       <h1 className="text-center text-4xl font-bold text-pink-800 drop-shadow-2xl">
-        Taaza Dandiya 2025 Ticket Booking
+        Taaza Dandiya 2026 Ticket Booking
       </h1>
       <h3 className="text-center text-xl font-semibold text-pink-700 drop-shadow-md">
-        Tickets at Rs.800 (incl. tax) each 🎟
+        Tickets at Rs.900 (incl. tax) each 🎟
       </h3>
 
       {/* Back Button */}

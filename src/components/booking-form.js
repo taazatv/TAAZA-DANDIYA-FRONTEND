@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import backend_url from "../config.js";
 import Terms from "./terms.js";
 const BookingForm = () => {
-  const TICKET_PRICE = 800;
+  const TICKET_PRICE = 10;
   const initialState = {
     name: "",
     email: "",
@@ -61,7 +61,7 @@ const BookingForm = () => {
           <p>
             Confirmed! Booking ID {res.data.token}. You are entitled to
             {res.data.tickets} tickets dated {res.data.date} for Taaza Dandiya
-            @Netaji Indoor Stadium subject to clearance of payment. T&C apply.
+            @Biswa Bangla Mela Prangan subject to clearance of payment. T&C apply.
           </p>
           <p>
             <strong>Goto the Ticket counter at the venue to redeem.</strong>
@@ -284,7 +284,7 @@ const BookingForm = () => {
         key: `${test_key}`,
         amount: `${finalAmount * 100}`,
         currency: "INR",
-        name: "Taaza Dandiya 2025",
+        name: "Taaza Dandiya 2026",
         description: "Ticket Booking Payment",
         image: "https://taazatv.com/image/logo.webp",
         order_id: `${orderId}`,
@@ -345,33 +345,33 @@ const BookingForm = () => {
         <div className="date-selection">
           <div
             className={`date-box ${
-              selectedDate === "29-09-2025" ? "active" : ""
+              selectedDate === "18-10-2026" ? "active" : ""
             }`}
-            onClick={() => handleDateSelect("29-09-2025")}
-          >
-            <span className="month">SEP</span>
-            <span className="date">29</span>
-            <span className="day">Mon</span>
-          </div>
-          <div
-            className={`date-box ${
-              selectedDate === "30-09-2025" ? "active" : ""
-            }`}
-            onClick={() => handleDateSelect("30-09-2025")}
-          >
-            <span className="month">SEP</span>
-            <span className="date">30</span>
-            <span className="day">Tue</span>
-          </div>
-          <div
-            className={`date-box ${
-              selectedDate === "01-10-2025" ? "active" : ""
-            }`}
-            onClick={() => handleDateSelect("01-10-2025")}
+            onClick={() => handleDateSelect("18-10-2026")}
           >
             <span className="month">OCT</span>
-            <span className="date">01</span>
-            <span className="day">Wed</span>
+            <span className="date">18</span>
+            <span className="day">SUN</span>
+          </div>
+          <div
+            className={`date-box ${
+              selectedDate === "19-10-2026" ? "active" : ""
+            }`}
+            onClick={() => handleDateSelect("19-10-2026")}
+          >
+            <span className="month">OCT</span>
+            <span className="date">19</span>
+            <span className="day">MON</span>
+          </div>
+          <div
+            className={`date-box ${
+              selectedDate === "20-10-2026" ? "active" : ""
+            }`}
+            onClick={() => handleDateSelect("20-10-2026")}
+          >
+            <span className="month">OCT</span>
+            <span className="date">20</span>
+            <span className="day">TUE</span>
           </div>
         </div>
         <div className="selected">
